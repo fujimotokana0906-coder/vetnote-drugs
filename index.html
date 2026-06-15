@@ -474,7 +474,14 @@ window.addEventListener('load', function() {
     draw();
   });
 
-  document.getElementById('q').addEventListener('input', draw);
+  document.getElementById('q').addEventListener('input', function() {
+    var q = (document.getElementById('q').value || '').trim();
+    if (q && AC !== '\u3059\u3079\u3066') {
+      AC = '\u3059\u3079\u3066';
+      buildTabs();
+    }
+    draw();
+  });
   buildTabs();
   draw();
 });
